@@ -1,0 +1,36 @@
+
+variables:
+  - group: 'vh-vsts-automation'  # variable group
+  - group: 'Azure AD Tenant - hearings.reform.hmcts.net'
+  - group: 'vh-hearings-ssl-certificates'
+  - group: 'vh-hearings-reform-hmcts-net-dns-zone'
+
+  - name: appName 
+    value: vh-website # name of the app to be registered and provisioned
+
+  - name: WebSiteName
+    value: $(appName)-$(environmentName) # web site name "$(environmentName)" is set during runtime from GUI. 
+
+  - name: aadAppReplyUrls
+    value: https://$(WebSiteName)$(AzureAppServiceWebSiteCustomDomainName)/, https://$(WebSiteName)$(AzureAppServiceWebSiteCustomDomainName)/dashboard, https://$(WebSiteName)$(AzureAppServiceWebSiteCustomDomainName)/logout #CSV list of replay urls
+
+
+# GitHub Repo that conatins build templates. Reference https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=vsts#using-other-repositories
+resources:
+  repositories:
+  - repository: azureDevOpsTemplates
+    type: github
+    name: hmcts/azure-devops-templates
+    ref: refs/heads/master  # ref name to use, defaults to 'refs/heads/master'
+    endpoint: 'GitHub connection 1'
+
+trigger:
+- master
+pr:
+- master
+
+jobs:
+- template: jobs/aadAppRegistration.yml@azureDevOpsTemplates # Template reference
+  parameters:
+    appName: $(appName)
+    aadAppReplyUrls: $(aadAppReplyUrls)

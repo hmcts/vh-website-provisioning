@@ -1,0 +1,15 @@
+{
+    "requiredResourceAccess": [
+        {
+            "resourceAppName": "Microsoft.Azure.ActiveDirectory",
+            "resourceAppId": "00000002-0000-0000-c000-000000000000",
+            "resourceAccess": [
+                {
+                    "resourceAccessName": "Sign in and read user profile",
+                    "id": "311a71cc-e848-46a1-bdf8-97ff7156d8e6",
+                    "type": "Scope"
+                }
+            ]
+        }
+    ]
+}
