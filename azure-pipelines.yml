@@ -12,7 +12,7 @@ variables:
     value: $(appName)-$(environmentName) # web site name "$(environmentName)" is set during runtime from GUI. 
 
   - name: aadAppReplyUrls
-    value: https://$(WebSiteName)$(AzureAppServiceWebSiteCustomDomainName)/, https://$(WebSiteName)$(AzureAppServiceWebSiteCustomDomainName)/login #CSV list of replay urls
+    value: https://$(WebSiteName)$(AzureAppServiceWebSiteCustomDomainName)/, https://$(WebSiteName)$(AzureAppServiceWebSiteCustomDomainName)/login https://$(WebSiteName)-staging.azurewebsites.net/, https://$(WebSiteName)-staging.azurewebsites.net/login #CSV list of replay urls
 
 
 # GitHub Repo that conatins build templates. Reference https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=vsts#using-other-repositories
