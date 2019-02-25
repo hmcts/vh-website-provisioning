@@ -13,7 +13,7 @@ variables:
   - name: WebSiteUrl
     value: https://$(WebSiteName)$(AzureAppServiceWebSiteCustomDomainName)
   - name: WebSiteUrlStaging
-    value: https://$(WebSiteName)-staging$(AzureAppServiceWebSiteCustomDomainName)/
+    value: https://$(WebSiteName)-staging$(AzureAppServiceWebSiteCustomDomainName)
   - name: aadAppReplyUrls
     value: https://$(WebSiteUrl)/, https://$(WebSiteUrl)/login, https://$(WebSiteUrlStaging)/, https://$(WebSiteUrlStaging)/login #CSV list of replay urls
 
