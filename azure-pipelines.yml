@@ -15,7 +15,7 @@ variables:
   - name: WebSiteUrlStaging
     value: https://$(WebSiteName)-staging$(AzureAppServiceWebSiteCustomDomainName)
   - name: aadAppReplyUrls
-    value: https://$(WebSiteUrl)/, https://$(WebSiteUrl)/login, https://$(WebSiteUrlStaging)/, https://$(WebSiteUrlStaging)/login #CSV list of replay urls
+    value: $(WebSiteUrl)/, $(WebSiteUrl)/login, $(WebSiteUrlStaging)/, $(WebSiteUrlStaging)/login #CSV list of replay urls
 
 
 # GitHub Repo that conatins build templates. Reference https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=vsts#using-other-repositories
